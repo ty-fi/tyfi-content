@@ -15,7 +15,6 @@ categories:
   - urban-planning
 coauthors: []
 summary: "Peer-reviewed article in the Agora Planning Journal examining the tension between microgrid development as a private-market phenomenon and the public goods — resilience, equity, and access — that microgrids could deliver if planned deliberately."
-canonical_url: ""
 featured: false
 ---
 
