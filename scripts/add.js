@@ -7,7 +7,7 @@ module.exports = async (params) => {
   const today = formatDate(new Date());
 
   const FLOWS = ['Add Work', 'Add Press', 'Add Blog Post'];
-  const flow = await quickAddApi.suggester(FLOWS, FLOWS);
+  const flow = await quickAddApi.suggester(FLOWS, FLOWS, "Content type?");
   if (flow == null) return;
 
   if (flow === 'Add Work')       await flowWork(app, quickAddApi, today);
@@ -19,7 +19,7 @@ module.exports = async (params) => {
 
 async function flowWork(app, quickAddApi, today) {
   const TYPES = ['testimony', 'report', 'white-paper', 'brief', 'article', 'thesis', 'comment'];
-  const type = await quickAddApi.suggester(TYPES, TYPES);
+  const type = await quickAddApi.suggester(TYPES, TYPES, "Type of work");
   if (type == null) return;
 
   const title = await quickAddApi.inputPrompt('Title', 'Full title of the work');
@@ -32,14 +32,14 @@ async function flowWork(app, quickAddApi, today) {
   const employer = (await quickAddApi.inputPrompt('Employer (enter to skip)', 'e.g. RMI, Synapse', '')) ?? '';
   const client   = (await quickAddApi.inputPrompt('Client (enter to skip)', 'e.g. Vote Solar', '')) ?? '';
 
-  const regAnswer = await quickAddApi.suggester(['No', 'Yes'], ['No', 'Yes'], false, 'Regulatory filing?');
+  const regAnswer = await quickAddApi.suggester(['No', 'Yes'], ['No', 'Yes'], 'Regulatory filing?');
   let jurisdiction = '', docket_no = '';
   if (regAnswer === 'Yes') {
     jurisdiction = (await quickAddApi.inputPrompt('Jurisdiction', 'e.g. North Carolina', '')) ?? '';
     docket_no    = (await quickAddApi.inputPrompt('Docket number (enter to skip)', 'e.g. E-100, Sub 179', '')) ?? '';
   }
 
-  const pdfFile      = (await quickAddApi.inputPrompt('PDF filename (enter to skip)', 'e.g. my-testimony.pdf', '')) ?? '';
+  const pdfResult    = await pickAndCopyPdf(app, quickAddApi);
   const canonicalUrl = (await quickAddApi.inputPrompt('Canonical URL (enter to skip)', 'https://...', '')) ?? '';
 
   const fields = {
@@ -50,7 +50,7 @@ async function flowWork(app, quickAddApi, today) {
     docket_no:    docket_no.trim()    || undefined,
     topics: [], categories: [], coauthors: [],
     summary: summary.trim(),
-    pdf_url:       pdfFile.trim()      ? `pdfs/${pdfFile.trim()}` : undefined,
+    pdf_url:       pdfResult?.pdf_url,
     canonical_url: canonicalUrl.trim() || undefined,
     featured: false,
   };
@@ -67,7 +67,7 @@ async function flowWork(app, quickAddApi, today) {
 
 async function flowPress(app, quickAddApi, today) {
   const KINDS = ['citation', 'interview', 'conference-talk', 'podcast', 'video'];
-  const kind = await quickAddApi.suggester(KINDS, KINDS);
+  const kind = await quickAddApi.suggester(KINDS, KINDS, "Type fo press");
   if (kind == null) return;
 
   const title  = await quickAddApi.inputPrompt('Headline', 'Article or segment headline');
@@ -124,6 +124,47 @@ async function updateIndex(app, indexPath, type, entry) {
   if (!file) { new Notice(`Index not found: ${indexPath}`); return; }
   const current = await app.vault.read(file);
   await app.vault.modify(file, prependRowToIndex(current, type, entry));
+}
+
+// ── PDF import helper ─────────────────────────────────────────────────────────
+
+async function pickAndCopyPdf(app, quickAddApi) {
+  const choice = await quickAddApi.suggester(
+    ['Import from disk', 'Enter URL', 'Skip'],
+    ['import', 'url', 'skip'],
+    'PDF?'
+  );
+  if (choice == null || choice === 'skip') return null;
+
+  if (choice === 'url') {
+    const url = (await quickAddApi.inputPrompt('PDF URL', 'https://...', '')) ?? '';
+    return url.trim() ? { pdf_url: url.trim() } : null;
+  }
+
+  // Open a native OS file picker — no require() needed, uses browser APIs
+  const file = await new Promise(resolve => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.pdf';
+    input.onchange = () => resolve(input.files?.[0] ?? null);
+    input.oncancel = () => resolve(null);
+    input.click();
+  });
+  if (!file) return null;
+
+  const buffer = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload  = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsArrayBuffer(file);
+  });
+
+  if (!app.vault.getAbstractFileByPath('pdfs')) {
+    await app.vault.createFolder('pdfs');
+  }
+  await app.vault.adapter.writeBinary(`pdfs/${file.name}`, buffer);
+  new Notice(`PDF copied → pdfs/${file.name}`);
+  return { pdf_url: `pdfs/${file.name}` };
 }
 
 // ── Core functions (mirrored from scripts/core.js) ────────────────────────────
