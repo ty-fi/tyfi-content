@@ -7,6 +7,14 @@
       "command": true,
       "iconTag": "Zap",
       "macroId": "a1b2c3d4-0001-4000-a000-000000000002"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-a000-000000000004",
+      "name": "Reindex",
+      "type": "Macro",
+      "command": true,
+      "iconTag": "RefreshCw",
+      "macroId": "a1b2c3d4-0001-4000-a000-000000000005"
     }
   ],
   "macros": [
@@ -21,6 +29,21 @@
           "scriptPath": "scripts/add.js",
           "settings": {
             "executeOnStartup": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reindex",
+      "id": "a1b2c3d4-0001-4000-a000-000000000005",
+      "commands": [
+        {
+          "id": "a1b2c3d4-0001-4000-a000-000000000006",
+          "type": "UserScript",
+          "name": "Reindex",
+          "scriptPath": "scripts/reindex.js",
+          "settings": {
+            "executeOnStartup": true
           }
         }
       ]
