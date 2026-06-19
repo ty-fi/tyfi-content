@@ -5,7 +5,8 @@
 // Uses Obsidian's metadataCache (frontmatter already parsed, no file reads)
 // and core.buildIndexTable() for the actual table generation.
 
-const core = require('./core.js');
+const path = require('path');
+const core = require(path.join(__dirname, 'core.js'));
 
 module.exports = async ({ app }) => {
   await rebuildIndex(app, 'works', 'work', f => ({

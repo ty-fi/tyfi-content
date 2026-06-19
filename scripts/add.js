@@ -2,9 +2,10 @@
 // Register as the "Add Content" macro in QuickAdd (see .obsidian/plugins/quickadd/data.json).
 //
 // Shares all business logic with scripts/cli.js via scripts/core.js.
-// require() resolves relative to this file's directory, so ./core.js → scripts/core.js.
+// Uses path.join(__dirname, ...) for reliable resolution inside Obsidian's module loader.
 
-const core = require('./core.js');
+const path = require('path');
+const core = require(path.join(__dirname, 'core.js'));
 
 module.exports = async (params) => {
   const { app, quickAddApi } = params;
