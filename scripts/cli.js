@@ -37,6 +37,7 @@ const reindex    = hasFlag('--reindex');
   if (reindex) {
     console.log('Rebuilding all indexes...');
     rebuildAllIndexes();
+    console.log('Done.');
     return;
   }
   if (inputFile) {
@@ -240,7 +241,8 @@ function rebuildIndex(dir, indexFile, type, entryFn) {
     .filter(f => f.endsWith('.md') && !f.startsWith('_'));
   const entries = files.map(f => entryFn(path.join(dir, f)));
   fs.writeFileSync(indexPath, core.buildIndexTable(type, entries), 'utf8');
-  console.log(`  ✓ ${type}/${indexFile} (${entries.length} entries)`);
+  const folder = path.basename(dir);
+  console.log(`  ✓ ${folder}/${indexFile} (${entries.length} entries)`);
 }
 
 // ── File helpers ──────────────────────────────────────────────────────────────
