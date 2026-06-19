@@ -1,8 +1,20 @@
-# Obsidian workspace state (local to each machine)
+# Obsidian — ignore personal preferences and generated plugin code,
+# but track community-plugins.json (which plugins to install) and
+# plugins/quickadd/data.json (command configuration for this vault).
 .obsidian/workspace
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
+.obsidian/hotkeys.json
+.obsidian/graph.json
+# Plugin code/assets — managed by Obsidian per-install, not ours
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+.obsidian/plugins/*/manifest.json
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh
 
 # OS junk
 .DS_Store
