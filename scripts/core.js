@@ -1,6 +1,10 @@
-// core.js — Pure business logic for tyfi-content vault.
+// core.js — Canonical business logic for tyfi-content vault.
 // No I/O. No Obsidian APIs. No Node.js builtins.
-// Both scripts/add.js (QuickAdd) and scripts/cli.js (Node) load this via require('./core.js').
+//
+// Used directly by scripts/cli.js via require('./core.js').
+// Obsidian QuickAdd scripts (add.js, reindex.js) cannot use require() for local files,
+// so they inline a copy of the functions they need. When changing logic here,
+// mirror the relevant changes into add.js and reindex.js as well.
 'use strict';
 
 function slugify(str) {
