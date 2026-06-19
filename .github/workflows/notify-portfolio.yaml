@@ -7,6 +7,7 @@ on:
       - 'works/**'
       - 'press/**'
       - 'pdfs/**'
+  workflow_dispatch: {}
 
 jobs:
   notify:
