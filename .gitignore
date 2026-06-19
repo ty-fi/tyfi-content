@@ -1,0 +1,22 @@
+# Obsidian workspace state (local to each machine)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Blog drafts (private in-progress posts)
+blog/drafts/
+
+# Node (if you ever run npm install)
+node_modules/
+
+# PDFs are tracked in git by default.
+# To stop tracking them, uncomment the line below and run:
+#   git rm --cached pdfs/*.pdf
+# To use Git LFS instead: git lfs track "pdfs/*.pdf"
+# pdfs/*.pdf

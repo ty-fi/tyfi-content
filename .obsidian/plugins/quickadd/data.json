@@ -1,0 +1,30 @@
+{
+  "choices": [
+    {
+      "id": "a1b2c3d4-0001-4000-a000-000000000001",
+      "name": "Add Content",
+      "type": "Macro",
+      "command": true,
+      "iconTag": "Zap",
+      "macroId": "a1b2c3d4-0001-4000-a000-000000000002"
+    }
+  ],
+  "macros": [
+    {
+      "name": "Add Content",
+      "id": "a1b2c3d4-0001-4000-a000-000000000002",
+      "commands": [
+        {
+          "id": "a1b2c3d4-0001-4000-a000-000000000003",
+          "type": "UserScript",
+          "name": "Add Content",
+          "scriptPath": "scripts/add.js",
+          "settings": {
+            "executeOnStartup": false
+          }
+        }
+      ]
+    }
+  ],
+  "version": "9.14.0"
+}

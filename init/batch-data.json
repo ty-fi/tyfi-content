@@ -1,0 +1,45 @@
+{
+  "_comment": "Batch import format for node scripts/cli.js --input init/batch-data.json --type all",
+  "_comment2": "Add entries here and run the command above to generate .md files in works/, press/, blog/.",
+  "_comment3": "Omit any optional field rather than leaving it blank.",
+  "works": [
+    {
+      "title": "Example Work Title",
+      "type": "testimony",
+      "date": "2024-01-15",
+      "employer": "RMI",
+      "client": "Vote Solar",
+      "jurisdiction": "North Carolina",
+      "docket_no": "E-100, Sub 179",
+      "topics": ["resource-planning", "climate-risk"],
+      "categories": ["testimony", "north-carolina"],
+      "coauthors": [],
+      "summary": "Two to three sentence summary of this work. What it argues, in what proceeding, on behalf of whom.",
+      "pdf_url": "pdfs/example-testimony.pdf",
+      "canonical_url": "https://example.com/canonical-link",
+      "featured": false,
+      "body": "Optional longer body text. Can be left out."
+    }
+  ],
+  "press": [
+    {
+      "title": "Example Headline",
+      "outlet": "Canary Media",
+      "date": "2024-01-15",
+      "kind": "citation",
+      "url": "https://example.com/article",
+      "quote": "Optional pull-quote from the article.",
+      "related_work": "ncuc-e-100-sub-179-2022",
+      "summary": "One-line context note."
+    }
+  ],
+  "blog": [
+    {
+      "title": "Example Blog Post",
+      "date": "2024-01-15",
+      "tags": ["policy", "analysis"],
+      "draft": true,
+      "summary": "One-line teaser."
+    }
+  ]
+}
