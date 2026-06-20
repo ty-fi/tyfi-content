@@ -8,6 +8,7 @@
 | 2024-09-01 | Power Shift | report | RMI | [power-shift](power-shift.md) |
 | 2023-09-01 | Planning to Harness the Inflation Reduction Act | report | RMI | [planning-to-harness-ira](planning-to-harness-ira.md) |
 | 2023-02-01 | Testimony of Tyler Fitch — Nova Scotia Power Rate Case | testimony | Synapse Energy Economics | [nsuarb-m10872-nova-scotia-2023](nsuarb-m10872-nova-scotia-2023.md) |
+| 2022-12-01 | Electric Vehicles are Driving Rates Down | brief | Synapse | [electric-vehicles-are-driving-rates-down](electric-vehicles-are-driving-rates-down.md) |
 | 2022-09-02 | Direct Testimony of Tyler Fitch — Duke Energy Carolinas and Duke Energy Progress 2022 Carbon Plan | testimony | Synapse Energy Economics | [ncuc-e-100-sub-179-2022](ncuc-e-100-sub-179-2022.md) |
 | 2022-09-01 | Carbon-Free by 2050: Pathways to Achieving North Carolina's Power Sector Carbon Requirements at Least Cost to Ratepayers | report | Synapse Energy Economics | [nc-carbon-free-2050-2022](nc-carbon-free-2050-2022.md) |
 | 2022-05-04 | Direct Testimony of Tyler Fitch — Georgia Power 2022 Integrated Resource Plan | testimony | Synapse Energy Economics | [gpsc-georgia-power-2022-irp](gpsc-georgia-power-2022-irp.md) |
@@ -30,6 +31,7 @@
 | 2020-03-31 | Direct Testimony of Tyler Fitch — Dominion Energy Virginia Experimental Residential Rate | testimony | Vote Solar | [va-scc-pur-2019-00214-2020](va-scc-pur-2019-00214-2020.md) |
 | 2020-02-18 | Direct Testimony of James Van Nostrand and Tyler Fitch — Duke Energy Carolinas Rate Case | testimony | Vote Solar | [ncuc-e-7-sub-1214-dec-2020](ncuc-e-7-sub-1214-dec-2020.md) |
 | 2019-10-17 | Direct Testimony of Tyler Fitch and Rick Gilliam — Georgia Power 2019 Base Rate Case | testimony | Vote Solar | [gpsc-42516-georgia-power-2019](gpsc-42516-georgia-power-2019.md) |
+| 2019-06-03 | Opening Comments of Vote Solar and 350 New Orleans on Establishment of a Resilient and Renewable Portfolio Standard | comment | Vote Solar | [opening-comments-of-vote-solar-and-350-new-orleans-on-establishment-of-a-resilient-and-renewable-portfolio-standard](opening-comments-of-vote-solar-and-350-new-orleans-on-establishment-of-a-resilient-and-renewable-portfolio-standard.md) |
 | 2019-01-01 | Comments to the North Carolina Department of Environmental Quality on Draft Clean Energy Plan | comment | Vote Solar | [nc-deq-clean-energy-plan-2019](nc-deq-clean-energy-plan-2019.md) |
 | 2018-07-01 | A Key Climate Solution is Lifting Off | article | RMI | [key-climate-solution-lifting-off](key-climate-solution-lifting-off.md) |
 | 2018-01-01 | Fueling the Energy Transition: Can a Congolese Community Affordably Electrify with Renewable Resources? | article | University of Michigan | [fueling-energy-transition-droc-2018](fueling-energy-transition-droc-2018.md) |

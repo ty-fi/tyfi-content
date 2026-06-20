@@ -45,26 +45,6 @@
         ]
       },
       "runOnStartup": false
-    },
-    {
-      "id": "d9f80cf0-f617-4753-881a-b2564085aef0",
-      "name": "add-content-2",
-      "type": "Macro",
-      "command": true,
-      "runOnStartup": false,
-      "macro": {
-        "name": "add-content-2",
-        "id": "6c0a9be9-35e4-443c-90e5-799e8727885b",
-        "commands": [
-          {
-            "name": "add",
-            "type": "UserScript",
-            "id": "f2b9d7f5-065b-43ac-9108-ec3e9779b777",
-            "path": "scripts/add.js",
-            "settings": {}
-          }
-        ]
-      }
     }
   ],
   "inputPrompt": "single-line",
